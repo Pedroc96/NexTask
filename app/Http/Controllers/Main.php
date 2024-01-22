@@ -42,7 +42,7 @@ class Main extends Controller
 
 
         return view('main', [
-            'title' => 'TaskTrek',
+            'title' => 'NexTask',
             'taskBoxes' => $data['taskBoxes']
         ]);
        
@@ -53,7 +53,7 @@ class Main extends Controller
 
     public function login()
     {
-        $data = ['title' => 'Login | TaskTrek'];
+        $data = ['title' => 'Login | NexTask'];
         return view('login_frm', $data);
     }
 
@@ -164,7 +164,7 @@ class Main extends Controller
         }
 
 
-        return view('edit_task_frm', ['title' => 'Editar Tarefa', 'task' => $task]);
+        return view('edit_task_frm', ['title' => 'Editar Tarefa ', 'task' => $task]);
     }
 
 

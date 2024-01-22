@@ -4,8 +4,8 @@
 <article class="flex flex-col min-h-screen bg-gray-50">
     <header class="w-full p-4 flex items-center justify-start">
         <div class="flex items-center space-x-3"> 
-            <img src="{{ asset('assets/img/organiza.png') }}" alt="Organiza Logo" class="h-12">
-            <h1 class="text-3xl font-bold text-gray-800">TaskTrek</h1>
+            <img src="{{ asset('assets/img/NexTask.png') }}" alt="NexTask Logo" class="h-12">
+            <h1 class="text-3xl font-bold text-gray-800">NexTask</h1>
         </div>
     </header>
 

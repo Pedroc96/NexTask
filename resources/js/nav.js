@@ -4,8 +4,6 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 
-
-
 function setUserInitials() {
     const userInitialsElements = document.querySelectorAll('.user-initials');
     if (userInitialsElements.length === 0) return;
