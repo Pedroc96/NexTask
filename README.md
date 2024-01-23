@@ -6,13 +6,13 @@ O NexTask é um sistema de gestão de tarefas desenvolvido em Laravel, que permi
 
 Para executar o NexTask localmente, siga estes passos:
 
-git clone [https://github.com/Pedroc96/NexTask.git]
-cd NexTask
-composer install
-cp .env.example .env
-php artisan key:generate
-php artisan migrate
-php artisan serve
+- git clone [https://github.com/Pedroc96/NexTask.git]
+- cd NexTask
+- composer install
+- cp .env.example .env
+- php artisan key:generate
+- php artisan migrate
+- php artisan serve
 
 
 ## Pré-requisitos
