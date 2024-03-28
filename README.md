@@ -12,6 +12,8 @@ Para executar o NexTask localmente, siga estes passos:
 - cp .env.example .env
 - php artisan key:generate
 - php artisan migrate
+- php artisan db:seed --class=UsersSeeder
+- npm install
 - php artisan serve
 
 
