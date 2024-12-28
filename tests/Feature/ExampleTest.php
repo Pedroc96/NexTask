@@ -3,9 +3,11 @@
 namespace Tests\Feature;
 
 use Tests\TestCase;
-use App\Models\UserM;
+use App\Models\UserModel;
 use Illuminate\Foundation\Testing\RefreshDatabase;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Auth;
 
 class ExampleTest extends TestCase
 {
@@ -21,13 +23,19 @@ class ExampleTest extends TestCase
 
     public function test_authenticated_user_can_access_home(): void
     {
-        // Create user with ONLY the columns that exist in your table
-        $user = UserM::create([
+        // Insert user directly using DB facade
+        $userId = DB::table('users')->insertGetId([
             'username' => 'testuser',
-            'password' => Hash::make('password')
+            'password' => Hash::make('password'),
+            'created_at' => now(),
+            'updated_at' => now()
         ]);
 
-        $this->actingAs($user);
+        // Get user
+        $user = UserModel::find($userId);
+        
+        // Login manually
+        Auth::login($user);
 
         $response = $this->get('/');
         
