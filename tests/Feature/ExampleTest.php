@@ -3,8 +3,8 @@
 namespace Tests\Feature;
 
 use Tests\TestCase;
-use App\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
+use App\Models\UserModel;  // Make sure this import matches your User model location
 
 class ExampleTest extends TestCase
 {
@@ -21,8 +21,8 @@ class ExampleTest extends TestCase
     public function test_authenticated_user_can_access_home(): void
     {
         // Create and authenticate a user
-        $user = User::factory()->create();
-
+        $user = UserModel::factory()->create();
+        
         // Use Laravel's built-in authentication
         $this->actingAs($user);
 
