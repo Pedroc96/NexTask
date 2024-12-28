@@ -3,7 +3,7 @@
 namespace Tests\Feature;
 
 use Tests\TestCase;
-use App\Models\UserModel;
+use App\Models\UserM;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Support\Facades\Hash;
 
@@ -21,15 +21,14 @@ class ExampleTest extends TestCase
 
     public function test_authenticated_user_can_access_home(): void
     {
-        // Create user directly without factory
-        $user = new UserModel();
-        $user->name = 'Test User';
+       
+        $user = new UserM();
+        $user->username = 'testuser'; 
         $user->email = 'test@example.com';
         $user->password = Hash::make('password');
         $user->email_verified_at = now();
         $user->save();
 
-        // Authenticate the user
         $this->actingAs($user);
 
         $response = $this->get('/');
