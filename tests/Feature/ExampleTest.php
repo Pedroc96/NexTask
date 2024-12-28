@@ -21,13 +21,11 @@ class ExampleTest extends TestCase
 
     public function test_authenticated_user_can_access_home(): void
     {
-       
-        $user = new UserM();
-        $user->username = 'testuser'; 
-        $user->email = 'test@example.com';
-        $user->password = Hash::make('password');
-        $user->email_verified_at = now();
-        $user->save();
+        // Create user with ONLY the columns that exist in your table
+        $user = UserM::create([
+            'username' => 'testuser',
+            'password' => Hash::make('password')
+        ]);
 
         $this->actingAs($user);
 
