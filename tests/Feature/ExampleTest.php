@@ -3,11 +3,8 @@
 namespace Tests\Feature;
 
 use Tests\TestCase;
-use App\Models\UserModel;
+use App\Models\UserModel;  
 use Illuminate\Foundation\Testing\RefreshDatabase;
-use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Facades\Auth;
 
 class ExampleTest extends TestCase
 {
@@ -23,19 +20,14 @@ class ExampleTest extends TestCase
 
     public function test_authenticated_user_can_access_home(): void
     {
-        // Insert user directly using DB facade
-        $userId = DB::table('users')->insertGetId([
+        // Create a user with just the required fields from your schema
+        $user = UserModel::factory()->create([
             'username' => 'testuser',
-            'password' => Hash::make('password'),
-            'created_at' => now(),
-            'updated_at' => now()
+            'password' => bcrypt('password')
         ]);
-
-        // Get user
-        $user = UserModel::find($userId);
         
-        // Login manually
-        Auth::login($user);
+        // Use Laravel's built-in authentication
+        $this->actingAs($user);
 
         $response = $this->get('/');
         
